@@ -1,4 +1,4 @@
-const myDate = new Date('Oct 27, 2023 10:53:08 UTC'); // Append "UTC" to specify the time zone
+const myDate = new Date('Oct 27, 2023 10:52:12 UTC'); // Append "UTC" to specify the time zone
 
 if (isNaN(myDate)) {
     console.error('Invalid date format for myDate');
