@@ -18,7 +18,7 @@ if (isNaN(myDate)) {
 
             document.getElementById("days").innerHTML = days;
             document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("mins").innerHTML = minutes;
             document.getElementById("seconds").innerHTML = seconds;
         }
     }, 1000); // 1-second interval
