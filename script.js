@@ -1,32 +1,27 @@
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minsEl = document.getElementById("mins");
-const secondsEl = document.getElementById("seconds");
+const year = new Date().getFullYear();
+const myDate = new Date('Dec 25, 2022 00:00:00');
+console.log(myDate);
 
-const newYears = "15 Jul 2021";
+// countdown
+let timer = setInterval(function() {
 
-function countdown() {
-    const newYearsDate = new Date(newYears);
-    const currentDate = new Date();
+// get today's date
+const today = new Date().getTime();
 
-    const totalSeconds = (newYearsDate - currentDate) / 1000;
+// get the difference
+const diff = myDate - today;
 
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = Math.floor(totalSeconds / 3600) % 24;
-    const mins = Math.floor(totalSeconds / 60) % 60;
-    const seconds = Math.floor(totalSeconds) % 60;
+// math
+let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    daysEl.innerHTML = days;
-    hoursEl.innerHTML = formatTime(hours);
-    minsEl.innerHTML = formatTime(mins);
-    secondsEl.innerHTML = formatTime(seconds);
-}
+// display
+document.getElementById("days").innerHTML=days
+document.getElementById("hours").innerHTML=hours
+document.getElementById("minutes").innerHTML=minutes
+document.getElementById("seconds").innerHTML=seconds
 
-function formatTime(time) {
-    return time < 10 ? `0${time}` : time;
-}
-
-// initial call
-countdown();
-
-setInterval(countdown, 1000);
+}, 
+1);
